@@ -98,7 +98,16 @@
 
     /* PROJECTS */
     #projects { background: var(--paper); }
-    .project { margin-bottom: 52px; }
+    .project { display: grid; grid-template-columns: 1fr 2fr; gap: 36px; align-items: start; margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--line); }
+    .project:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+    .p-side { position: sticky; top: 84px; }
+    .p-side h3 { font-size: 22px; line-height: 1.2; color: var(--night); margin: 6px 0 12px; }
+    .p-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .points-label { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange-d); margin: 24px 0 12px; }
+    .points { list-style: none; margin: 0; padding: 0; }
+    .points li { position: relative; padding-left: 20px; margin-bottom: 11px; color: #374151; font-size: 15px; line-height: 1.55; }
+    .points li::before { content: ""; position: absolute; left: 0; top: .72em; width: 10px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--orange), var(--gold)); }
+    .p-main { min-width: 0; }
     .p-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
     .p-num { font-family: var(--mono); font-size: 13px; color: var(--orange-d); }
     .p-head h3 { font-size: 22px; color: var(--night); }
@@ -121,6 +130,16 @@
     .job .date { font-family: var(--mono); font-size: 12px; color: var(--orange-d); letter-spacing: .04em; }
     .results { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 4px; }
     .results span { font-family: var(--mono); font-size: 12px; padding: 4px 10px; border: 1px solid #ffd9bd; background: #fff7f0; color: #b24a00; border-radius: 6px; }
+    .job .cur { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; vertical-align: middle; margin-left: 10px; padding: 3px 8px; border-radius: 999px; color: #fff; background: linear-gradient(90deg, var(--orange), var(--gold)); }
+    .path { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 6px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .path b { font-weight: 500; color: var(--night); border: 1px solid var(--line); background: var(--paper); padding: 4px 10px; border-radius: 6px; }
+    .path b.now { border-color: #ffd9bd; background: #fff7f0; color: #b24a00; }
+    .path i { font-style: normal; color: var(--orange); }
+    .roles { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+    .role { position: relative; border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px 14px 24px; background: var(--paper); overflow: hidden; }
+    .role::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--orange), var(--gold)); }
+    .role-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; }
+    .role h4 { font-family: var(--head); font-weight: 600; font-size: 18px; color: var(--night); margin: 0; letter-spacing: -.01em; }
     .job ul { margin: 12px 0 0; padding-left: 18px; }
     .job li { margin-bottom: 7px; color: #374151; }
     .job li::marker { color: var(--orange); }
@@ -165,6 +184,8 @@
       .portrait { order: -1; width: 220px; }
       .summary { grid-template-columns: 1fr; gap: 10px; }
       section { padding: 66px 0; }
+      .project { grid-template-columns: 1fr; gap: 20px; }
+      .p-side { position: static; }
     }
     @media (max-width: 640px) {
       .links { gap: 14px; }
@@ -270,33 +291,71 @@
       <p class="sub">Interactive Figma prototypes. Click through the screens right inside each frame.</p>
 
       <div class="project rv">
-        <div class="p-head"><span class="p-num">01</span><h3>SIM Card</h3><span class="p-tag">Product design</span><span class="p-tag">Figma prototype</span></div>
-        <div class="frame">
-          <iframe src="https://embed.figma.com/proto/2KNz985oF5L4abF7FN4ddq/Untitled?node-id=1-3421&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A4245&embed-host=share"
-                  title="SIM Card prototype" allowfullscreen loading="lazy"></iframe>
+        <div class="p-side">
+          <span class="p-num">01</span>
+          <h3>SIM Card</h3>
+          <div class="p-tags"><span class="p-tag">Product design</span><span class="p-tag">Figma prototype</span></div>
+          <div class="points-label">Summary</div>
+          <!-- PROJECT 1 SUMMARY: replace these placeholder bullets with your own points -->
+          <ul class="points">
+            <li>Add summary point 1 here</li>
+            <li>Add summary point 2 here</li>
+            <li>Add summary point 3 here</li>
+          </ul>
         </div>
-        <div class="hint">// click inside the prototype to explore the flow</div>
+        <div class="p-main">
+          <div class="frame">
+            <iframe src="https://embed.figma.com/proto/2KNz985oF5L4abF7FN4ddq/Untitled?node-id=1-3421&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A4245&embed-host=share"
+                    title="SIM Card prototype" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="hint">// click inside the prototype to explore the flow</div>
+        </div>
       </div>
 
       <div class="project rv">
-        <div class="p-head"><span class="p-num">02</span><h3>Raise Dispute Flow</h3><span class="p-tag">Product design</span><span class="p-tag">Figma prototype</span></div>
-        <div class="frame">
-          <iframe src="https://embed.figma.com/proto/2KNz985oF5L4abF7FN4ddq/Portfolio?node-id=38-9231&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=38%3A9976&show-proto-sidebar=1&embed-host=share"
-                  title="Raise Dispute Flow prototype" allowfullscreen loading="lazy"></iframe>
+        <div class="p-side">
+          <span class="p-num">02</span>
+          <h3>Raise Dispute Flow</h3>
+          <div class="p-tags"><span class="p-tag">Product design</span><span class="p-tag">Figma prototype</span></div>
+          <div class="points-label">Summary</div>
+          <!-- PROJECT 2 SUMMARY: replace these placeholder bullets with your own points -->
+          <ul class="points">
+            <li>Add summary point 1 here</li>
+            <li>Add summary point 2 here</li>
+            <li>Add summary point 3 here</li>
+          </ul>
         </div>
-        <div class="hint">// use the sidebar inside the prototype to jump between screens</div>
+        <div class="p-main">
+          <div class="frame">
+            <iframe src="https://embed.figma.com/proto/2KNz985oF5L4abF7FN4ddq/Portfolio?node-id=38-9231&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=38%3A9976&show-proto-sidebar=1&embed-host=share"
+                    title="Raise Dispute Flow prototype" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="hint">// use the sidebar inside the prototype to jump between screens</div>
+        </div>
       </div>
 
       <div class="project rv">
-        <div class="p-head"><span class="p-num">03</span><h3>Dispute Workflow Interface</h3><span class="p-tag">Product design</span><span class="p-tag">Figma prototype</span></div>
-        <div class="frame">
-          <iframe src="https://embed.figma.com/proto/2KNz985oF5L4abF7FN4ddq/Portfolio?node-id=70-1577&scaling=scale-down-width&content-scaling=responsive&page-id=0%3A1&starting-point-node-id=70%3A1565&show-proto-sidebar=1&embed-host=share"
-                  title="Dispute Workflow interface prototype" allowfullscreen loading="lazy"></iframe>
+        <div class="p-side">
+          <span class="p-num">03</span>
+          <h3>Dispute Workflow Interface</h3>
+          <div class="p-tags"><span class="p-tag">Product design</span><span class="p-tag">Figma prototype</span></div>
+          <div class="points-label">Summary</div>
+          <!-- PROJECT 3 SUMMARY: replace these placeholder bullets with your own points -->
+          <ul class="points">
+            <li>Add summary point 1 here</li>
+            <li>Add summary point 2 here</li>
+            <li>Add summary point 3 here</li>
+          </ul>
         </div>
-        <div class="hint">// use the sidebar inside the prototype to jump between screens</div>
+        <div class="p-main">
+          <div class="frame">
+            <iframe src="https://embed.figma.com/proto/2KNz985oF5L4abF7FN4ddq/Portfolio?node-id=70-1577&scaling=scale-down-width&content-scaling=responsive&page-id=0%3A1&starting-point-node-id=70%3A1565&show-proto-sidebar=1&embed-host=share"
+                    title="Dispute Workflow interface prototype" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="hint">// use the sidebar inside the prototype to jump between screens</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <div class="beam"></div>
 
@@ -311,74 +370,102 @@
 
         <article class="job rv">
           <div class="job-top">
-            <div><h3>Product Manager</h3><div class="co">Zolve &middot; Bengaluru, India</div></div>
-            <div class="date">MAR 2026 &ndash; PRESENT</div>
+            <div><h3>Zolve</h3><div class="co">Bengaluru, India</div></div>
+            <div class="date">NOV 2021 &ndash; PRESENT</div>
           </div>
-          <div class="results"><span>+47% card activations</span><span>+20% payment collections</span><span>&minus;50% resolution time</span><span>+16% ticket throughput</span></div>
-          <ul>
-            <li>Designed, built, and launched an AI-powered unified ticketing platform using Cursor AI, Claude, Bolt, and Google AI Studio in a 48-hour hackathon, implementing RBAC and modular workflows that increased ticket throughput by 16% (215&rarr;250/day) and reduced average resolution time by 50% (6&rarr;3 minutes).</li>
-            <li>Led the strategy, design, and rollout of AI voice bots for card activation, card delivery tracking, and payment reminders, increasing card activations by 47% and payment collections by 20%.</li>
-            <li>Owned end-to-end delivery of Card Replacement, Product Ordering, and Dispute Processing products, leading product discovery, vendor selection, API integrations, UAT, rollout, and post-launch optimization.</li>
-            <li>Owned product execution for customer-facing financial products, partnering with Engineering, Operations, Risk, Compliance, and external vendors.</li>
-            <li>Translated customer and operational insights into product requirements and roadmap priorities, improving customer experience, compliance, and operational efficiency.</li>
-          </ul>
+          <div class="path"><b>Program Manager</b><i>&rarr;</i><b>Operations Manager</b><i>&rarr;</i><b class="now">Product Manager</b></div>
+
+          <div class="roles">
+
+            <div class="role">
+              <div class="role-top">
+                <h4>Product Manager <span class="cur">Current</span></h4>
+                <div class="date">MAR 2026 &ndash; PRESENT</div>
+              </div>
+              <div class="results"><span>+47% card activations</span><span>+20% payment collections</span><span>&minus;50% resolution time</span><span>+16% ticket throughput</span></div>
+              <ul>
+                <li>Designed, built, and launched an AI-powered unified ticketing platform using Cursor AI, Claude, Bolt, and Google AI Studio in a 48-hour hackathon, implementing RBAC and modular workflows that increased ticket throughput by 16% (215&rarr;250/day) and reduced average resolution time by 50% (6&rarr;3 minutes).</li>
+                <li>Led the strategy, design, and rollout of AI voice bots for card activation, card delivery tracking, and payment reminders, increasing card activations by 47% and payment collections by 20%.</li>
+                <li>Owned end-to-end delivery of Card Replacement, Product Ordering, and Dispute Processing products, leading product discovery, vendor selection, API integrations, UAT, rollout, and post-launch optimization.</li>
+                <li>Owned product execution for customer-facing financial products, partnering with Engineering, Operations, Risk, Compliance, and external vendors.</li>
+                <li>Translated customer and operational insights into product requirements and roadmap priorities, improving customer experience, compliance, and operational efficiency.</li>
+              </ul>
+            </div>
+
+            <div class="role">
+              <div class="role-top">
+                <h4>Operations Manager</h4>
+                <div class="date">JAN 2023 &ndash; MAR 2026</div>
+              </div>
+              <div class="results"><span>&minus;80% SLA violations</span><span>100% Reg E &amp; Z compliance</span><span>$30K+ annual revenue</span><span>0% card delivery failures</span></div>
+              <ul>
+                <li>Led Business Operations, Fraud &amp; Risk, and Dispute &amp; Chargebacks teams comprising 30+ professionals.</li>
+                <li>Reduced SLA violations by 80% and improved average resolution time from 48 hours to 4 hours through workflow automation and process redesign.</li>
+                <li>Established KPI, KRA, and SLA frameworks that improved operational performance, accountability, and regulatory compliance.</li>
+                <li>Improved dispute operations by achieving 100% compliance with Regulations E &amp; Z while managing 120+ dispute cases daily.</li>
+                <li>Spearheaded a service monetization initiative that generated $30K+ in annual revenue by transforming a free service into a paid offering.</li>
+                <li>Increased referral rates from 1.5&times; to 2.5&times; through customer journey optimization and key account management initiatives.</li>
+                <li>Reduced card delivery failures to 0% and lowered return file rates from 7.8% to 2.7% through address verification enhancements.</li>
+              </ul>
+            </div>
+
+            <div class="role">
+              <div class="role-top">
+                <h4>Program Manager</h4>
+                <div class="date">NOV 2021 &ndash; JAN 2023</div>
+              </div>
+              <div class="results"><span>Workflow automation</span><span>Dashboards &amp; metrics</span><span>Product + Eng partnership</span></div>
+              <ul>
+                <li>Led Sales Operations through data-driven process improvements, workflow automation, and performance analytics.</li>
+                <li>Built standardized operational processes and reporting frameworks that improved execution efficiency across cross-functional teams.</li>
+                <li>Partnered with Product and Engineering teams to automate workflows and enhance customer experience.</li>
+                <li>Defined operational metrics, dashboards, and reporting frameworks to support strategic business decision-making.</li>
+              </ul>
+            </div>
+
+          </div>
         </article>
 
         <article class="job rv">
           <div class="job-top">
-            <div><h3>Operations Manager</h3><div class="co">Zolve &middot; Bengaluru, India</div></div>
-            <div class="date">JAN 2023 &ndash; MAR 2026</div>
-          </div>
-          <div class="results"><span>&minus;80% SLA violations</span><span>100% Reg E &amp; Z compliance</span><span>$30K+ annual revenue</span><span>0% card delivery failures</span></div>
-          <ul>
-            <li>Led Business Operations, Fraud &amp; Risk, and Dispute &amp; Chargebacks teams comprising 30+ professionals.</li>
-            <li>Reduced SLA violations by 80% and improved average resolution time from 48 hours to 4 hours through workflow automation and process redesign.</li>
-            <li>Established KPI, KRA, and SLA frameworks that improved operational performance, accountability, and regulatory compliance.</li>
-            <li>Improved dispute operations by achieving 100% compliance with Regulations E &amp; Z while managing 120+ dispute cases daily.</li>
-            <li>Spearheaded a service monetization initiative that generated $30K+ in annual revenue by transforming a free service into a paid offering.</li>
-            <li>Increased referral rates from 1.5&times; to 2.5&times; through customer journey optimization and key account management initiatives.</li>
-            <li>Reduced card delivery failures to 0% and lowered return file rates from 7.8% to 2.7% through address verification enhancements.</li>
-          </ul>
-        </article>
-
-        <article class="job rv">
-          <div class="job-top">
-            <div><h3>Program Manager</h3><div class="co">Zolve &middot; Bengaluru, India</div></div>
-            <div class="date">NOV 2021 &ndash; JAN 2023</div>
-          </div>
-          <div class="results"><span>Workflow automation</span><span>Dashboards &amp; metrics</span><span>Product + Eng partnership</span></div>
-          <ul>
-            <li>Led Sales Operations through data-driven process improvements, workflow automation, and performance analytics.</li>
-            <li>Built standardized operational processes and reporting frameworks that improved execution efficiency across cross-functional teams.</li>
-            <li>Partnered with Product and Engineering teams to automate workflows and enhance customer experience.</li>
-            <li>Defined operational metrics, dashboards, and reporting frameworks to support strategic business decision-making.</li>
-          </ul>
-        </article>
-
-        <article class="job rv">
-          <div class="job-top">
-            <div><h3>Associate Manager</h3><div class="co">MPL &middot; Bengaluru, India</div></div>
+            <div><h3>MPL</h3><div class="co">Bengaluru, India</div></div>
             <div class="date">AUG 2021 &ndash; NOV 2021</div>
           </div>
-          <div class="results"><span>Better CSAT</span><span>Lower support volume</span><span>VoC research</span></div>
-          <ul>
-            <li>Improved Customer Satisfaction (CSAT) and conversation quality through process optimization.</li>
-            <li>Reduced support volumes by analysing ticket inflow patterns and optimizing support workflows.</li>
-            <li>Conducted Voice of Customer (VoC) research to drive customer experience improvements.</li>
-          </ul>
+          <div class="roles">
+            <div class="role">
+              <div class="role-top">
+                <h4>Associate Manager</h4>
+                <div class="date">AUG 2021 &ndash; NOV 2021</div>
+              </div>
+              <div class="results"><span>Better CSAT</span><span>Lower support volume</span><span>VoC research</span></div>
+              <ul>
+                <li>Improved Customer Satisfaction (CSAT) and conversation quality through process optimization.</li>
+                <li>Reduced support volumes by analysing ticket inflow patterns and optimizing support workflows.</li>
+                <li>Conducted Voice of Customer (VoC) research to drive customer experience improvements.</li>
+              </ul>
+            </div>
+          </div>
         </article>
 
         <article class="job rv">
           <div class="job-top">
-            <div><h3>Project Manager</h3><div class="co">OYO &middot; Dallas, USA</div></div>
+            <div><h3>OYO</h3><div class="co">Dallas, USA</div></div>
             <div class="date">JAN 2019 &ndash; DEC 2020</div>
           </div>
-          <div class="results"><span>300+ hotels launched</span><span>&minus;96% onboarding time</span><span>Rating 2.9 &rarr; 3.9</span></div>
-          <ul>
-            <li>Managed end-to-end onboarding programs across the U.S. and Canada, launching 300+ hotels and supporting 30% business growth.</li>
-            <li>Reduced onboarding time by 96% (168 hours &rarr; 6 hours) through automation and process redesign.</li>
-            <li>Increased hotel ratings by 34% (2.9 &rarr; 3.9) through operational improvements and customer experience initiatives.</li>
-          </ul>
+          <div class="roles">
+            <div class="role">
+              <div class="role-top">
+                <h4>Project Manager</h4>
+                <div class="date">JAN 2019 &ndash; DEC 2020</div>
+              </div>
+              <div class="results"><span>300+ hotels launched</span><span>&minus;96% onboarding time</span><span>Rating 2.9 &rarr; 3.9</span></div>
+              <ul>
+                <li>Managed end-to-end onboarding programs across the U.S. and Canada, launching 300+ hotels and supporting 30% business growth.</li>
+                <li>Reduced onboarding time by 96% (168 hours &rarr; 6 hours) through automation and process redesign.</li>
+                <li>Increased hotel ratings by 34% (2.9 &rarr; 3.9) through operational improvements and customer experience initiatives.</li>
+              </ul>
+            </div>
+          </div>
         </article>
 
       </div>
