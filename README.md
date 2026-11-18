@@ -2,7 +2,7 @@
 
 Product Manager
 
-**Live website:** [https://yourusername.github.io](https://yourusername.github.io)
+**Live website:** [https://nspiki.github.io](https://nspiki.github.io)
 
 ## About
 This is my portfolio website, built with plain HTML and hosted on GitHub Pages.
@@ -11,4 +11,4 @@ This is my portfolio website, built with plain HTML and hosted on GitHub Pages.
 - **SIM Card:** Figma prototype, embedded on the homepage
 
 ## Contact
-- Email: you@example.com
+- Email: nishanthpiccolo@gmail.com
